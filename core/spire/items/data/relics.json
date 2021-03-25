@@ -1,0 +1,91 @@
+[
+    {
+        "id": 1,
+        "name": "Burning Blood",
+        "rarirty": null,
+        "collection": "starter",
+        "class_type": "ironclad",
+        "mechanic": {
+            "after_fight": {
+                "heal": { "value": 6 }
+            }
+        },
+        "description": "At the end of the combat, heal 6 HP.",
+        "fun_fact": "Your body's own blood burns with undying rage."
+    },
+    {
+        "id": 2,
+        "name": "Ring of the Snake",
+        "rarirty": null,
+        "collection": "starter",
+        "class_type": "silent",
+        "mechanic": {
+            "first_turn": {
+                "draw": { "value": 2 }
+            }
+        },
+        "description": "At the start of each combat, draw 2 additional cards.",
+        "fun_fact": "Made from a fossilized snake. Represents great skill as a huntress."
+    },
+    {
+        "id": 3,
+        "name": "Cracked Core",
+        "rarirty": null,
+        "collection": "starter",
+        "class_type": "defect",
+        "mechanic": {
+            "first_turn": {
+                "channel_orb": { "type": "lightning", "value": 1 }
+            }
+        }
+    },
+    {
+        "id": 4,
+        "name": "Pure Water",
+        "rarirty": null,
+        "collection": "starter",
+        "class_type": "watcher",
+        "mechanic": {
+            "first_turn": {
+                "add_card": "miracle"
+            }
+        }
+    },
+    {
+        "id": 5,
+        "name": "Akabeko",
+        "rarirty": "common",
+        "collection": "general",
+        "class_type": "general",
+        "mechanic": {
+            "first_attack": { 
+                "type": "additional_damage", 
+                "value": 8 
+            }
+        }
+    },
+    {
+        "id": 6,
+        "name": "Burning Blood",
+        "rarirty": null,
+        "collection": "starter",
+        "class_type": "ironclad",
+        "mechanic": null
+    },
+    {
+        "id": 7,
+        "name": "Burning Blood",
+        "rarirty": null,
+        "collection": "starter",
+        "class_type": "ironclad",
+        "mechanic": null
+    },
+    {
+        "id": 8,
+        "name": "Burning Blood",
+        "rarirty": null,
+        "collection": "starter",
+        "class_type": "ironclad",
+        "mechanic": null
+    }
+]

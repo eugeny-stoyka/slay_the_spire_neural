@@ -6,9 +6,7 @@
         "collection": "starter",
         "class_type": "ironclad",
         "mechanic": {
-            "after_fight": {
-                "heal": { "value": 6 }
-            }
+            "after_fight": { "heal": { "value": 6 } }
         },
         "description": "At the end of the combat, heal 6 HP.",
         "fun_fact": "Your body's own blood burns with undying rage."
@@ -20,9 +18,7 @@
         "collection": "starter",
         "class_type": "silent",
         "mechanic": {
-            "first_turn": {
-                "draw": { "value": 2 }
-            }
+            "first_turn": { "draw": { "value": 2 } }
         },
         "description": "At the start of each combat, draw 2 additional cards.",
         "fun_fact": "Made from a fossilized snake. Represents great skill as a huntress."
@@ -37,7 +33,9 @@
             "first_turn": {
                 "channel_orb": { "type": "lightning", "value": 1 }
             }
-        }
+        },
+        "description": "At the start of each combat, Channel 1 Lightning orb.",
+        "fun_fact": "The mysterious life force which powers the Automatons within the Spire. It appears to be cracked."
     },
     {
         "id": 4,
@@ -46,10 +44,10 @@
         "collection": "starter",
         "class_type": "watcher",
         "mechanic": {
-            "first_turn": {
-                "add_card": "miracle"
-            }
-        }
+            "first_turn": { "add_card": "miracle" }
+        },
+        "description": "At the start of each combat, add 1 Miracle card into your hand.",
+        "fun_fact": "Filtered through fine sand and free of impurities."
     },
     {
         "id": 5,
@@ -58,34 +56,508 @@
         "collection": "general",
         "class_type": "general",
         "mechanic": {
-            "first_attack": { 
-                "type": "additional_damage", 
-                "value": 8 
+            "condition": {
+                "if": { "type": "first_attack" },
+                "reward": { "attack": { "type": "additional", "value": 8 } }
             }
-        }
+        },
+        "description": "Your first Attack each combat deals 8 additional damage.",
+        "fun_fact": "Muuu~"
     },
     {
         "id": 6,
-        "name": "Burning Blood",
-        "rarirty": null,
-        "collection": "starter",
-        "class_type": "ironclad",
-        "mechanic": null
+        "name": "Anchor",
+        "rarirty": "common",
+        "collection": "general",
+        "class_type": "general",
+        "mechanic": {
+            "first_turn": { "block": { "type": "additional", "value": 10 } }
+        },
+        "description": "Start each combat with 10 Block.",
+        "fun_fact": "Holding this miniature trinket, you feel heavier and more stable."
     },
     {
         "id": 7,
-        "name": "Burning Blood",
-        "rarirty": null,
-        "collection": "starter",
-        "class_type": "ironclad",
-        "mechanic": null
+        "name": "Ancient Tea Set",
+        "rarirty": "common",
+        "collection": "general",
+        "class_type": "general",
+        "mechanic": {
+            "condition": {
+                "if": { "type": "after_rest_site" },
+                "reward": { 
+                    "first_turn": { "energy": { "type": "additional", "value": 2 } }
+                }
+            }
+        },
+        "description": "Whenever you enter a Rest Site, start the next combat with 2 extra Energy.",
+        "fun_fact": "The key to a refreshing night's rest."
     },
     {
         "id": 8,
-        "name": "Burning Blood",
-        "rarirty": null,
-        "collection": "starter",
+        "name": "Art of War",
+        "rarirty": "common",
+        "collection": "general",
+        "class_type": "general",
+        "mechanic": {
+            "condition": {
+                "if": { "type": "count_attacks", "value": 0 },
+                "reward": { 
+                    "next_turn": {
+                        "energy": { "type": "additional", "value": 1 }
+                    } 
+                } 
+            }
+        },
+        "description": "If you do not play any Attacks during your turn, gain an extra Energy next turn.",
+        "fun_fact": "This ancient manuscript contains wisdom from a past age."
+    },
+    {
+        "id": 9,
+        "name": "Bag of Marbles",
+        "rarirty": "common",
+        "collection": "general",
+        "class_type": "general",
+        "mechanic": {
+            "first_turn": {
+                "effect": { "type": "vulnerable", "target": "all", "value": 1 } 
+            }
+        },
+        "description": "At the start of each combat, apply 1 Vulnerable to ALL enemies.",
+        "fun_fact": "A once popular toy in the City. Useful for throwing enemies off balance."
+    },
+    {
+        "id": 10,
+        "name": "Bag of Preparation",
+        "rarirty": "common",
+        "collection": "general",
+        "class_type": "general",
+        "mechanic": {
+            "first_turn": { "draw": { "value": 2 } }
+        },
+        "description": "At the start of each combat, draw 2 additional cards.",
+        "fun_fact": "Oversized adventurer's pack. Has many pockets and straps."
+    },
+    {
+        "id": 11,
+        "name": "Blood Vial",
+        "rarirty": "common",
+        "collection": "general",
+        "class_type": "general",
+        "mechanic": {
+            "first_turn": { "heal": { "value": 2 } }
+        },
+        "description": "At the start of each combat, heal 2 HP.",
+        "fun_fact": "A vial containing the blood of a pure and elder vampire."
+    },
+    {
+        "id": 12,
+        "name": "Bronze Scales",
+        "rarirty": "common",
+        "collection": "general",
+        "class_type": "general",
+        "mechanic": {
+            "first_turn": { "effect": { "type": "thorns", "target": "champion", "value": 3 } }
+        },
+        "description": "Whenever you take damage, deal 3 damage back.",
+        "fun_fact": "The sharp scales of the Guardian. Rearanges itself to protect its user."
+    },
+    {
+        "id": 13,
+        "name": "Centennial Puzzle",
+        "rarirty": "common",
+        "collection": "general",
+        "class_type": "general",
+        "mechanic": {
+            "condition": { 
+                "if": { "type": "first_damage", "target": "champion" }, 
+                "effect": { "draw": { "value": 3 } } 
+            }
+        },
+        "description": "The first time you lose HP each combat, draw 3 cards.",
+        "fun_fact": "Upon solving the puzzle you feel a powerful warmth in your chest."
+    },
+    {
+        "id": 14,
+        "name": "Ceramic Fish",
+        "rarirty": "common",
+        "collection": "general",
+        "class_type": "general",
+        "mechanic": {
+            "condition": {
+                "if": { "type": "add_card" },
+                "effect": { "gold": { "value": 9 } }
+            }
+        },
+        "description": "Whenever you add a card to your deck, gain 9 gold.",
+        "fun_fact": "Meticulously painted, these fish were revered to bring great fortune."
+    },
+    {
+        "id": 15,
+        "name": "Dream Catcher",
+        "rarirty": "common",
+        "collection": "general",
+        "class_type": "general",
+        "mechanic": {
+            "condition": {
+                "if": { "type": "after_rest" },
+                "effect": { "type": "card_reward" }
+            }
+        },
+        "description": "Whenever you rest, you may add a card to your deck.",
+        "fun_fact": "The northern tribes would often use dream catchers at night, believing they led to self improvement."
+    },
+    {
+        "id": 16,
+        "name": "Happy Flower",
+        "rarirty": "common",
+        "collection": "general",
+        "class_type": "general",
+        "mechanic": {
+            "condition": {
+                "if": { "type": "count_turns", "count": 3, "after": "refresh" },
+                "effect": { "energy": { "type": "additional", "value": 1 } }
+            }
+        },
+        "description": "Every 3 turns, gain 1 Energy.",
+        "fun_fact": "This unceasingly joyous plant is a popular novelty item among nobles."
+    },
+    {
+        "id": 17,
+        "name": "Juzu Bracelet",
+        "rarirty": "common",
+        "collection": "general",
+        "class_type": "general",
+        "mechanic": {
+            "condition": {
+                "if": { "type": "event", "name": "?" },
+                "effect": { "type": "skip_fight" }
+            }
+        },
+        "description": "Regular enemy combats are no longer encountered in ? rooms.",
+        "fun_fact": "A ward against the unknown."
+    },
+    {
+        "id": 18,
+        "name": "Lantern",
+        "rarirty": "common",
+        "collection": "general",
+        "class_type": "general",
+        "mechanic": {
+            "first_turn": {
+                "energy": { "type": "additional", "value": 1 }
+            }
+        },
+        "description": "Gain 1 Energy on the first turn of each combat.",
+        "fun_fact": "An eerie lantern which illuminates only for the wielder."
+    },
+    {
+        "id": 19,
+        "name": "Maw Bank",
+        "rarirty": "common",
+        "collection": "general",
+        "class_type": "general",
+        "mechanic": {
+            "condition": {
+                "if": { "type": "climbed" },
+                "effect": { "gold": { "value": 9 } },
+                "disable": { "type": "after_item_buy" }
+            }
+        },
+        "description": "Whenever you climb a floor, gain 12 Gold. No longer works when you spend any Gold at the shop.",
+        "fun_fact": "Surprisingly popular, despite maw attacks being a regular occurrence."
+    },
+    {
+        "id": 20,
+        "name": "Meal Ticket",
+        "rarirty": "common",
+        "collection": "general",
+        "class_type": "general",
+        "mechanic": {
+            "condition": {
+                "if": { "type": "event", "name": "shop" },
+                "effect": { "heal": { "value": 15 } }
+            }
+        },
+        "description": "Whenever you enter a shop, heal 15 HP.",
+        "fun_fact": "Complimentary meatballs with every visit!"
+    },
+    {
+        "id": 21,
+        "name": "Nunchaku",
+        "rarirty": "common",
+        "collection": "general",
+        "class_type": "general",
+        "mechanic": {
+            "condition": {
+                "if": { "type": "count_attacks", "count": 10, "after": "refresh" },
+                "effect": { "energy": { "type": "additional", "value": 1 } }
+            }
+        },
+        "description": "Every time you play 10 Attacks, gain 1 Energy.",
+        "fun_fact": "A good training tool. Improves the posture and agility of the wielder."
+    },
+    {
+        "id": 22,
+        "name": "Oddly Smooth Stone",
+        "rarirty": "common",
+        "collection": "general",
+        "class_type": "general",
+        "mechanic": {
+            "first_turn": {
+                "effect": { "dexterity": { "type": "additional", "value": 1 } }
+            }
+        },
+        "description": "At the start of each combat, gain 1 Dexterity.",
+        "fun_fact": "You have never seen something so smooth and pristine. This must be the work of the Ancients."
+    },
+    {
+        "id": 23,
+        "name": "Omamori",
+        "rarirty": "common",
+        "collection": "general",
+        "class_type": "general",
+        "mechanic": {
+            "condition": {
+                "if": { "type": "add_card" },
+                "effect": { "skip_card": { "type": "curse", "value": 2, "after": "reduce" } },
+                "disable": { "if": { "value": 0 } }
+            }
+        },
+        "description": "Negate the next 2 Curses you obtain.",
+        "fun_fact": "A common charm for staving off vile spirits. This one seems to possess a spark of divine energy."
+    },
+    {
+        "id": 24,
+        "name": "Orichalcum",
+        "rarirty": "common",
+        "collection": "general",
+        "class_type": "general",
+        "mechanic": {
+            "condition": {
+                "if": { "end_turn": { "block": { "value": 0, "target": "champion" } } },
+                "effect": { "block": { "value": 6 } }
+            }
+        },
+        "description": "If you end your turn without Block, gain 6 Block.",
+        "fun_fact": "A green tinted metal of an unknown origin. Seemingly indestructible."
+    },
+    {
+        "id": 25,
+        "name": "Pen Nib",
+        "rarirty": "common",
+        "collection": "general",
+        "class_type": "general",
+        "mechanic": {
+            "condition": {
+                "if": { "type": "count_attacks", "count": 9, "after": "refresh" },
+                "effect": { "attack": { "type": "additional", "value": { "multi": 2 } } }
+            }        
+        },
+        "description": "Every 10th Attack you play deals double damage.",
+        "fun_fact": "Holding the nib, you can see everyone ever slain by a previous owner of the pen. A violent history."
+    },
+    {
+        "id": 26,
+        "name": "Potion Belt",
+        "rarirty": "common",
+        "collection": "general",
+        "class_type": "general",
+        "mechanic": {
+            "effect": { "type": "add_potion_slot", "value": 2 }
+        },
+        "description": "Upon pickup, gain 2 Potion slots.",
+        "fun_fact": "I can gold more Potions using this belt!"
+    },
+    {
+        "id": 27,
+        "name": "Preserved Insect",
+        "rarirty": "common",
+        "collection": "general",
+        "class_type": "general",
+        "mechanic": {
+            "first_turn": {
+                "condition": {
+                    "if": { "type": "elite_fight" },
+                    "effect": { "type": "remove_hp", "target": "all", "value": { "multi": 0.75 } }
+                }
+            }
+        },
+        "description": "Enemies in Elite rooms have 25% less HP.",
+        "fun_fact": "The insect seems to create a shrinking aura that targets particularly large enemies."
+    },
+    {
+        "id": 28,
+        "name": "Regal Pillow",
+        "rarirty": "common",
+        "collection": "general",
+        "class_type": "general",
+        "mechanic": {
+            "condition": {
+                "if": { "type": "after_rest" },
+                "effect": { "heal": { "value": 15 } }
+            }
+        },
+        "description": "Heal an additional 15 HP when you Rest.",
+        "fun_fact": "Now you can get a proper night's rest."
+    },
+    {
+        "id": 29,
+        "name": "Smiling Mask",
+        "rarirty": "common",
+        "collection": "general",
+        "class_type": "general",
+        "mechanic": {
+            "condition": {
+                "if": { "type": "event", "name": "shop" },
+                "effect": { "card_remove": { "value": 50 } }
+            }
+        },
+        "description": "The merchant's card removal service now always costs 50 Gold.",
+        "fun_fact": "Mask worn by the merchant. He must have spares..."
+    },
+    {
+        "id": 30,
+        "name": "Strawberry",
+        "rarirty": "common",
+        "collection": "general",
+        "class_type": "general",
+        "mechanic": {
+            "effect": { "health": { "type": "additional", "value": 7 } }
+        },
+        "description": "Raise your Max HP by 7",
+        "fun_fact": "Delicious! Haven't seen any of these since the blight."
+    },
+    {
+        "id": 31,
+        "name": "The Boot",
+        "rarirty": "common",
+        "collection": "general",
+        "class_type": "general",
+        "mechanic": {
+            "effect": { "attack": { "type": "min", "value": 5 } }
+        },
+        "description": "Whenever you would deal 4 or less unblocked Attack damage, increase it to 5.",
+        "fun_fact": "When wound up, the boot grows larger in size."
+    },
+    {
+        "id": 32,
+        "name": "Tiny Chest",
+        "rarirty": "common",
+        "collection": "general",
+        "class_type": "general",
+        "mechanic": {
+            "condition": {
+                "if": { "type": "event", "name": "?", "count": 4, "after": "refresh" },
+                "effect": { "type": "event", "name": "chest_room" }
+            }
+        },
+        "description": "Every 4th ? room is a Tresure room.",
+        "fun_fact": "\"A fine prototype.\" - The Architect"
+    },
+    {
+        "id": 33,
+        "name": "Toy Ornithopter",
+        "rarirty": "common",
+        "collection": "general",
+        "class_type": "general",
+        "mechanic": {
+            "condition": {
+                "if": { "type": "use_potion" },
+                "effect": { "heal": { "value": 5 } }
+            }
+        },
+        "description": "Whenever you use a potion, heal 5 HP.",
+        "fun_fact": "This little toy is the perfect companion for the lone adventurer."
+    },
+    {
+        "id": 34,
+        "name": "Vajra",
+        "rarirty": "common",
+        "collection": "general",
+        "class_type": "general",
+        "mechanic": {
+            "first_turn": {
+                "effect": { "strength": { "type": "additional", "value": 1 } }
+            }
+        },
+        "description": "At the start of each combat, gain 1 Strength.",
+        "fun_fact": "An ornamental relic given to warriors displaying glory in battle."
+    },
+    {
+        "id": 35,
+        "name": "War paint",
+        "rarirty": "common",
+        "collection": "general",
+        "class_type": "general",
+        "mechanic": {
+            "effect": { "type": "upgrade_skill", "value": 2 }
+        },
+        "description": "Upon pick up, Upgrade 2 random Skills.",
+        "fun_fact": "In the past, Ironclads would create wards using enchanted war paint before charging into battle."
+    },
+    {
+        "id": 36,
+        "name": "Whetstone",
+        "rarirty": "common",
+        "collection": "general",
+        "class_type": "general",
+        "mechanic": {
+            "effect": { "type": "upgrade_attack", "value": 2 }
+        },
+        "description": "Upon pick up, Upgrade 2 random Attacks.",
+        "fun_fact": "\"Flesh never beats steel\" - Kublai the Great"
+    },
+    {
+        "id": 37,
+        "name": "Red Skull",
+        "rarirty": "common",
+        "collection": "general",
         "class_type": "ironclad",
-        "mechanic": null
+        "mechanic": {
+            "if": { "health": { "target": "champion", "from": "current_health" , "value": 0.5 } },
+            "effect": { "strength": { "type": "additional", "value": 3 } }
+        },
+        "description": "While your HP is at or below 50%, you have 3 additional Strength.",
+        "fun_fact": "A small skull covered in ornamental paint."
+    },
+    {
+        "id": 38,
+        "name": "Snecko Skull",
+        "rarirty": "common",
+        "collection": "general",
+        "class_type": "silent",
+        "mechanic": {
+            "effect": { "poison": { "type": "additional", "value": 1 } }
+        },
+        "description": "Whenever you apply Poison, apply an additional 1 Poison",
+        "fun_fact": "A snecko skull in pristine condition. Mysteriously clean and smooth, dirt and grime fall off inexplicably."
+    },
+    {
+        "id": 39,
+        "name": "Data Disk",
+        "rarirty": "common",
+        "collection": "general",
+        "class_type": "defect",
+        "mechanic": {
+            "effect": { "focus": { "type": "additional", "value": 1 } }
+        },
+        "description": "Start each combat with 1 Focus",
+        "fun_fact": "This disk contains precious data on birds and snakes."
+    },
+    {
+        "id": 40,
+        "name": "Damaru",
+        "rarirty": "common",
+        "collection": "general",
+        "class_type": "watcher",
+        "mechanic": {
+            "condition": {
+                "if": { "type": "turn" },
+                "effect": { "mantra": { "type": "additional", "value": 1 } }
+            }
+        },
+        "description": "At the start of your turn, gain 1 Mantra.",
+        "fun_fact": "The sound of the small drum keeps your mind awake, revealing a path forward."
     }
 ]

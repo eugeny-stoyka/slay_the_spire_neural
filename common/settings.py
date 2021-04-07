@@ -2,7 +2,7 @@
 """ Модуль настроек. """
 __author__ = "Eugeny Stoyka"
 
-version = "1.0.1"
+__version__ = "1.0.0"
 
 # Postgres
 DB_IP = '192.168.1.2'

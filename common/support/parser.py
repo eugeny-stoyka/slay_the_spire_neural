@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 
 from optparse import OptionParser
-from common.settings import version
+from common.settings import __version__
 
 main_text = "Развлекательная программа по вселенной Slay the Spire"
 
-parser = OptionParser(usage=main_text, version="Версия комплекса: " + version )
+parser = OptionParser(usage=main_text, version="Версия комплекса: " + __version__ )
 
 parser.add_option(
     "-b", 
